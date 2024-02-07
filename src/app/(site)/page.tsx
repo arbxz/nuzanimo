@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { getProjects } from "../../sanity/schemas/sanity-utils";
-import { Project } from "../../types/Project";
+import { getProjects } from "../../../sanity/sanity-utils";
+import { Project } from "../../../types/Project";
 import Link from "next/link";
 
 export default async function Home() {
   const projects: Project[] = await getProjects();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="flex gap-4">
         {projects.map((project) => (
           <Link
@@ -29,6 +29,6 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

@@ -3,8 +3,19 @@ const project = {
   title: "Projects",
   type: "document",
   fields: [
-    { name: "name", type: "string", title: "Name" },
-    { name: "slug", type: "slug", title: "Slug", options: { source: "name" } },
+    {
+      name: "name",
+      type: "string",
+      title: "Name",
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: { source: "name" },
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
     {
       name: "image",
       type: "image",

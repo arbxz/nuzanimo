@@ -7,7 +7,7 @@ export default async function Home() {
   const projects: Project[] = await getProjects();
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex flex-col items-center justify-between p-24">
       <div className="flex gap-4">
         {projects.map((project) => (
           <Link

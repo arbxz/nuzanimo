@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
@@ -7,6 +8,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      white: "#E9EBEA",
+      grey: "#CECFD1",
+      black: "#141311",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -15,6 +21,23 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase, addComponents, addUtilities, theme }: any) {
+      addBase({
+        html: { scrollBehaviour: "smooth" },
+        h1: {
+          letterSpacing: "-2%",
+        },
+        h2: {
+          letterSpacing: "-2%",
+        },
+      });
+      addUtilities({
+        ".content-auto": {
+          contentVisibility: "auto",
+        },
+      });
+    }),
+  ],
 };
 export default config;

@@ -31,8 +31,8 @@ export default async function Adoption({ params }: Props) {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <div className="flex flex-col md:flex-row gap-4 items-start justify-between mb-8">
-        <div className="flex flex-col gap-4 order-2 md:order-1">
+      <div className="flex flex-col lg:flex-row gap-4 items-start justify-between mb-8">
+        <div className="flex flex-col gap-4 order-2 lg:order-1">
           <span className="text-sm opacity-70">
             Published on {formattedDate}
           </span>
@@ -90,9 +90,12 @@ export default async function Adoption({ params }: Props) {
               </Link>
             )}
           </div>
+          <div className="max-w-xl text-xl mb-4">
+            <PortableText value={adoption.content} />
+          </div>
         </div>
         <Image
-          className="order-1 md:order-2 rounded-lg shadow-md"
+          className="flex-1 order-1 lg:order-2 rounded-lg shadow-md w-full h-96 object-cover lg:w-auto"
           src={adoption.image}
           alt={adoption.name}
           width={500}
@@ -100,10 +103,6 @@ export default async function Adoption({ params }: Props) {
           placeholder="blur"
           blurDataURL={adoption.image}
         />
-      </div>
-
-      <div className="text-xl mb-4">
-        <PortableText value={adoption.content} />
       </div>
     </div>
   );

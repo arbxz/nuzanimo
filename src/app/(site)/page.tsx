@@ -9,15 +9,16 @@ import {
   faEye,
   faHospitalSymbol,
 } from "@fortawesome/free-solid-svg-icons";
+import LinkButton from "@/components/LinkButton";
 
 export default async function Home() {
   const projects: Project[] = await getProjects();
 
   return (
     <div className="flex flex-col gap-8 lg:gap-20">
-      <section>
+      <section className="p-4">
         <div className="relative flex items-center justify-center z-10">
-          <div className=" w-full max-w-96">
+          <div className="w-full max-w-96">
             <h1 className="font-extrabold text-7xl mb-4">
               Help Our Animals Now!{" "}
             </h1>
@@ -28,7 +29,7 @@ export default async function Home() {
           </div>
 
           <Image
-            className="rounded-md shadow-md"
+            className="hidden md:block rounded-md shadow-md"
             src={"/pexels-charles-1851164.jpg"}
             width={400}
             height={600}
@@ -36,8 +37,7 @@ export default async function Home() {
           />
         </div>
       </section>
-
-      <section className="flex flex-col md:flex-row gap-8 items-end max-w-6xl mx-auto">
+      <section className="flex flex-col md:flex-row gap-8 items-end max-w-6xl mx-auto p-4">
         <div>
           <div className="flex items-center gap-4 opacity-80 mb-2">
             Find Your Furry Companion
@@ -56,24 +56,18 @@ export default async function Home() {
             https://www.pexels.com/photo/black-and-white-short-coated-dogs-3628100/
           </span>
         </div>
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           <span className="block w-full h-[1px] bg-black opacity-10 mb-8"></span>
           <p className="text-lg font-semibold mb-8">
             Take the first step towards unconditional love and lifelong
             friendship by browsing our available animals below. Together, we can
             make a difference, one adoption at a time.
           </p>
-          <Link
-            className="flex items-center w-fit gap-4 font-semibold text-base px-4 py-3 border-2 rounded-full bg-black text-white"
-            href="/adoptions">
-            <FontAwesomeIcon icon={faCat} />
-            <span>go to adoptions.</span>
-          </Link>
+          <LinkButton text="learn more." link="/adoptions" icon={faEye} />
         </div>
       </section>
-
-      <section className="flex flex-col md:flex-row gap-8 items-start max-w-6xl mx-auto">
-        <div className="w-1/2">
+      <section className="flex flex-col md:flex-row gap-8 items-start max-w-6xl mx-auto p-4">
+        <div className="md:w-1/2">
           <div className="flex items-center gap-4 opacity-80 mb-2">
             Spay and Neuter
             <span className="flex-1 h-[1px] w-full bg-black opacity-10"></span>
@@ -107,12 +101,11 @@ export default async function Home() {
               lives.
             </li>
           </ul>
-          <Link
-            className="flex items-center w-fit gap-4 font-semibold text-base px-4 py-3 border-2 rounded-full bg-black text-white"
-            href="/adoptions">
-            <FontAwesomeIcon icon={faHospitalSymbol} />
-            <span>link to full article.</span>
-          </Link>
+          <LinkButton
+            text="link to full article."
+            link="/adoptions"
+            icon={faHospitalSymbol}
+          />
         </div>
         <div className="w-1/2">
           <Image
@@ -128,7 +121,6 @@ export default async function Home() {
           </span>
         </div>
       </section>
-
       <section className="text-center bg-black text-white py-16 lg:py-32">
         <div className="max-w-6xl mx-auto">
           <h2 className="block text-6xl font-bold mb-8">
@@ -143,9 +135,11 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-
+      <span className="text-3xl">
+        add our partners block here + image credit hover on image
+      </span>
       <section className="text-center py-16 lg:py-32">
-        <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col items-center max-w-6xl mx-auto">
           <div className="mb-8 lg:mb-12">
             <h2 className="block text-6xl font-bold mb-4">Blog.</h2>
             <p>Catch up to what our community experts has to say.</p>
@@ -172,12 +166,8 @@ export default async function Home() {
               </Link>
             ))}
           </div>
-          <Link
-            className="mx-auto flex items-center w-fit gap-4 font-semibold text-base px-4 py-3 border-2 rounded-full bg-black text-white"
-            href="/blogs">
-            <FontAwesomeIcon icon={faEye} />
-            <span>view more.</span>
-          </Link>
+
+          <LinkButton text="view more." link="/blogs" icon={faEye} />
         </div>
       </section>
     </div>

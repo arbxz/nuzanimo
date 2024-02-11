@@ -15,7 +15,7 @@ export default async function Adoptions() {
   const adoptions: Adoption[] = await getAdoptions();
 
   return (
-    <div className="flex flex-col gap-8 lg:gap-16 justify-start items-center p-4 lg:p-24 max-w-6xl mx-auto">
+    <div className="flex flex-col gap-8 lg:gap-16 justify-start items-center p-4 lg:py-0 max-w-6xl mx-auto">
       <div className="w-full">
         <h1 className="text-6xl font-bold mb-4">Adoption</h1>
         <p className="lg:max-w-lg">
@@ -25,7 +25,7 @@ export default async function Adoptions() {
           but also contributing to the welfare of our community.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:md:grid-cols-5 gap-4">
         {adoptions.map((adoption) => (
           <Link
             className="group bg-pure-white rounded-md overflow-hidden shadow-sm hover:shadow transition-shadow cursor-pointer"

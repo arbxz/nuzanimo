@@ -15,6 +15,18 @@ const config: Config = {
       black: "#141311",
       red: "#FF5858",
       green: "#6ABD7C",
+      vermillion: "#FF4501",
+      blue: "#329FFE",
+      yellow: "#F5C000",
+      "pastel-dark": "#354259",
+      "pale-yellow": "#FEEF7B",
+      "pastel-green": "#8ACDD7",
+      "pastel-lime": "#B9F3E4",
+      "pastel-beige": "#F5EEE6",
+      "pastel-yellow": "#F9F9E0",
+      "pastel-pink": "#FFC0D9",
+      "pastel-red": "#FF90BC",
+      "pastel-purple": "#D0BFFF",
     },
     extend: {
       backgroundImage: {

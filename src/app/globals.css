@@ -4,8 +4,6 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
 html {
@@ -15,12 +13,6 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -31,16 +23,19 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .gradient-text {
-    background-image: linear-gradient(90deg, #0071e3, #6121c9);
-    background-clip: text;
-    color: transparent;
-  }
-  .gradient {
-    background-color: linear-gradient(90deg, #0071e3, #6121c9);
-  }
-
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9a/512x512_Dissolve_Noise_Texture.png");
+  background-size: 250px;
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
 }

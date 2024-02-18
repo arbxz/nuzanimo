@@ -22,7 +22,7 @@ export default async function NgoEvent() {
         height={1080}
       />
 
-      <div className="relative w-full pt-16 lg:pt-24 px-4 pb-8 text-white">
+      <div className="relative w-full pt-16 lg:pt-24 px-4 pb-8 text-white z-10">
         <div className="max-w-6xl mx-auto">
           <h1 className=" flex items-center gap-4 text-6xl font-bold mb-4">
             <FontAwesomeIcon className="text-primary" icon={faHashtag} />
@@ -36,7 +36,7 @@ export default async function NgoEvent() {
         </div>
       </div>
 
-      <div className="relative flex flex-col gap-8 lg:gap-16 justify-start items-center px-4 py-16 max-w-6xl mx-auto">
+      <div className="relative flex flex-col gap-8 lg:gap-16 justify-start items-center px-4 py-16 max-w-6xl mx-auto z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {ngoEvents.map((ngoEvent) => (
             //  href={`/events/${ngoEvent.slug}`}

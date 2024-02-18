@@ -23,6 +23,12 @@ const event = {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
+      name: "event_date",
+      type: "datetime",
+      title: "Event Date and Time",
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
       name: "event_link",
       type: "url",
       title: "Google calendar link",
@@ -37,12 +43,6 @@ const event = {
       name: "location",
       title: "Location",
       type: "string",
-    },
-    {
-      name: "content",
-      title: "Content",
-      type: "array",
-      of: [{ type: "block" }],
     },
     {
       name: "image",

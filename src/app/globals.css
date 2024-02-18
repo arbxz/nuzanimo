@@ -4,6 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  --glassBg: rgba(27, 27, 37, 0.5);
 }
 
 html {
@@ -37,5 +38,5 @@ body {
   mix-blend-mode: overlay;
   opacity: 0.25;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }

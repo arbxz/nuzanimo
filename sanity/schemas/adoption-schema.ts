@@ -17,6 +17,19 @@ const adoption = {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
+      name: "breed",
+      type: "string",
+      title: "Please select the animal's breed?",
+      initialValue: "No",
+      options: {
+        list: [
+          { title: "Dog", value: "dog" },
+          { title: "Cat", value: "cat" },
+        ],
+      },
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
       name: "image",
       type: "image",
       title: "Image",

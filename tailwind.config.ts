@@ -9,16 +9,17 @@ const config: Config = {
   ],
   theme: {
     colors: {
+      glass: "var(--glassBg)",
+      primary: "#FBAE3C",
+      "pastel-dark": "#001220",
       "pure-white": "#FFFFFF",
       white: "#E9EBEA",
       grey: "#CECFD1",
       black: "#141311",
-      red: "#FF5858",
       green: "#6ABD7C",
       vermillion: "#FF4501",
       blue: "#329FFE",
       yellow: "#F5C000",
-      "pastel-dark": "#354259",
       "pale-yellow": "#FEEF7B",
       "pastel-green": "#8ACDD7",
       "pastel-lime": "#B9F3E4",
@@ -45,6 +46,14 @@ const config: Config = {
         },
         h2: {
           letterSpacing: "-2%",
+        },
+      });
+      addComponents({
+        ".glass": {
+          background: theme("colors.glass"),
+          backdropFilter: "blur(10px)",
+          borderColor: theme("colors.glass-tint"),
+          borderWidth: "1px",
         },
       });
       addUtilities({

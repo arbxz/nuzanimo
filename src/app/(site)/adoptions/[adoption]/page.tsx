@@ -8,7 +8,6 @@ import {
   faCircleXmark,
   faEnvelope,
   faLink,
-  faMailReply,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,7 +29,7 @@ export default async function Adoption({ params }: Props) {
   });
 
   return (
-    <div className="p-4 max-w-6xl mx-auto">
+    <div className="block px-4 pt-24 max-w-6xl min-h-[calc(100vh-348px)] mx-auto">
       <div className="flex flex-col lg:flex-row gap-4 items-start justify-between mb-8">
         <div className="flex flex-col gap-4 order-2 lg:order-1">
           <span className="text-sm opacity-70">

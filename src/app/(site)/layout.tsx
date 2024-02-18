@@ -11,9 +11,9 @@ config.autoAddCss = false;
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "nu-zanimo",
+  title: "Protez nu zanimo",
   description:
-    "Nu zanimo is an ngo that helps animals in need by providing education and adoption and transport platform.",
+    "Protez nu zanimo is an ngo that helps animals in need by providing education and adoption and transport platform.",
 };
 
 export default function RootLayout({
@@ -24,12 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className + "bg-white min-h-screen text-pastel-dark"}>
+        className={
+          inter.className + "bg-white text-pastel-dark h-full min-h-svh"
+        }>
         <Navigation />
 
         <main className="relative">{children}</main>
 
-        <footer className="bg-pastel-dark text-white px-4 py-16">
+        <footer className="bg-pastel-dark text-white px-4 py-16 mt-auto">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
               <div>

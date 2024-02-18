@@ -5,6 +5,7 @@ export type Adoption = {
   _createdAt: Date;
   name: string;
   slug: string;
+  breed: string;
   age: number;
   vaccinated: string;
   neutered: string;

@@ -5,11 +5,14 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAddressBook,
+  faArrowRight,
   faEye,
   faHospitalSymbol,
+  faQrcode,
 } from "@fortawesome/free-solid-svg-icons";
 import LinkButton from "@/components/LinkButton";
 import CommercialImage from "@/components/CommercialImage";
+import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 
 export default async function Home() {
   const projects: Project[] = await getProjects();
@@ -17,9 +20,16 @@ export default async function Home() {
   return (
     <div className="flex bg-pastel-beige flex-col">
       <section className="relative noise">
-        <div className="relative flex items-center justify-center gap-8 z-10 px-4 min-h-svh">
-          <div className="w-full max-w-96">
-            <h1 className="font-extrabold text-8xl mb-4">
+        <Image
+          src="/bg-main.svg"
+          alt="bg-main"
+          className="absolute inset-0 w-full h-full object-cover"
+          width={1920}
+          height={1080}
+        />
+        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-8 z-10 px-4 pt-16 lg:pt-8 min-h-svh">
+          <div className="text-center lg:text-left w-full max-w-[500px] glass border-none rounded-xl p-4 text-white">
+            <h1 className="font-extrabold text-6xl md:text-8xl mb-4">
               Help Our Animals Now!{" "}
             </h1>
             <p className="text-md lg:pr-8">
@@ -28,32 +38,62 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="hidden md:block">
-            <CommercialImage
-              src="/home.jpg"
-              alt="home"
-              width={600}
-              height={500}
-              credits="Photo by Tina Nord"
-              creditLink="https://www.pexels.com/photo/adult-yellow-labrador-retriever-at-the-back-of-pickup-truck-917106/"
-            />
+          <div className="flex flex-col gap-4 h-full">
+            <div className="hidden lg:block">
+              <CommercialImage
+                src="/home.jpg"
+                alt="home"
+                width={500}
+                height={500}
+                credits="Photo by Tina Nord"
+                creditLink="https://www.pexels.com/photo/adult-yellow-labrador-retriever-at-the-back-of-pickup-truck-917106/"
+              />
+            </div>
+
+            <div className="block max-w-[500px]">
+              <Link
+                className="block text-white hover:scale-105 transition-transform duration-300 shadow-md"
+                href="/events">
+                <div className="bg-primary flex items-end gap-4 p-4 rounded-md">
+                  <div className="hidden lg:block">
+                    <span className="font-bold text-sm bg-white text-primary p-1 mb-2 block">
+                      Don&apos;t miss out !
+                    </span>
+                    <FontAwesomeIcon className="text-9xl" icon={faQrcode} />
+                  </div>
+
+                  <div className="w-full border-l-2 border-dashed border-white pl-4">
+                    <h3 className="flex items-center gap-4 text-2xl lg:text-3xl font-bold mb-4">
+                      <FontAwesomeIcon icon={faCalendar} />
+                      <span>Upcoming Events</span>
+                    </h3>
+                    <div className="max-w-96 mb-6">
+                      Check out our upcoming events by our partners about
+                      adoptions or sterilization campaigns
+                    </div>
+                    <div className="text-center w-64 ml-auto flex justify-center items-center text-base lg:text-sm gap-4 border-2 border-white px-4 py-2 rounded-full">
+                      Go to our events page{" "}
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-      <section className="relative bg-pastel-dark text-white">
-        <div className="flex flex-col md:flex-row gap-8 items-end px-4 py-24 lg:py-36 max-w-6xl mx-auto">
-          <div>
-            <CommercialImage
-              src="/adopt.jpg"
-              alt="adopt"
-              width={650}
-              height={650}
-              credits="Photo by Edgar Daniel Hernández Cervantes"
-              creditLink="https://www.pexels.com/photo/black-and-white-short-coated-dogs-3628100/"
-            />
-          </div>
+      <section className="relative noise bg-pastel-dark text-white">
+        <div className="relative flex flex-col md:flex-row gap-8 items-end px-4 py-24 lg:py-36 max-w-6xl mx-auto z-10">
+          <CommercialImage
+            src="/adopt.jpg"
+            alt="adopt"
+            width={650}
+            height={650}
+            credits="Photo by Edgar Daniel Hernández Cervantes"
+            creditLink="https://www.pexels.com/photo/black-and-white-short-coated-dogs-3628100/"
+          />
           <div className="md:w-1/2">
-            <div className="flex items-center gap-4 opacity-80 mb-2">
+            <div className="flex items-center gap-4 opacity-80 mb-2 ">
               Find Your Furry Companion
               <span className="flex-1 h-[1px] w-full bg-white opacity-40"></span>
             </div>
@@ -69,6 +109,13 @@ export default async function Home() {
             <LinkButton text="learn more." link="/adoptions" icon={faEye} />
           </div>
         </div>
+        <Image
+          src="/blob-haikei.svg"
+          alt="bg-main"
+          className="absolute block inset-0 w-auto h-full object-contain z-0"
+          width={1920}
+          height={1080}
+        />
       </section>
       <section className="relative noise bg-pure-white">
         <div className="flex flex-col md:flex-row gap-8 items-start max-w-6xl mx-auto px-4 py-24">
@@ -112,7 +159,7 @@ export default async function Home() {
               icon={faHospitalSymbol}
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 hidden md:block">
             <CommercialImage
               src="/vet.jpg"
               alt="vet"
@@ -138,41 +185,50 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-      <span className="text-3xl">
-        add our partners block here + image credit hover on image
-      </span>
-      <section className="relative noise text-center py-16 lg:py-32">
-        <div className="flex flex-col items-center max-w-6xl mx-auto">
-          <div className="mb-8 lg:mb-12">
-            <h2 className="block text-6xl font-bold mb-4">Blog.</h2>
-            <p>Catch up to what our community experts has to say.</p>
-          </div>
-
-          <div className="flex justify-center gap-4 mb-4 lg:mb-8">
-            {projects.map((project) => (
-              <Link
-                className="flex flex-col gap-4 p-2 rounded-md cursor-pointer"
-                key={project._id}
-                href={`/projects/${project.slug}`}>
-                {project.image && (
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    width={200}
-                    height={200}
-                    className="rounded-md"
-                    placeholder="blur"
-                    blurDataURL={project.image}
-                  />
-                )}
-                {project.name}
-              </Link>
-            ))}
-          </div>
-
-          <LinkButton text="view more." link="/blogs" icon={faEye} />
+      <section className="bg-pastel-dark text-pastel-beige">
+        <div className="max-w-6xl mx-auto flex gap-4 lg:gap-8 flex-wrap justify-center text-center py-16 lg:py-32">
+          <h3 className="text-4xl font-semibold w-full">Our Partners.</h3>
+          <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
+          <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
+          <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
+          <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
+          <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
         </div>
       </section>
+      {projects && (
+        <section className="relative noise text-center py-16">
+          <div className="flex flex-col items-center max-w-6xl mx-auto">
+            <div className="mb-8 lg:mb-12">
+              <h2 className="block text-6xl font-bold mb-4">Blog.</h2>
+              <p>Catch up to what our community experts has to say.</p>
+            </div>
+
+            <div className="flex justify-center gap-4 mb-4 lg:mb-8">
+              {projects.map((project) => (
+                <Link
+                  className="flex flex-col gap-4 p-2 rounded-md cursor-pointer"
+                  key={project._id}
+                  href={`/projects/${project.slug}`}>
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      width={200}
+                      height={200}
+                      className="rounded-md"
+                      placeholder="blur"
+                      blurDataURL={project.image}
+                    />
+                  )}
+                  {project.name}
+                </Link>
+              ))}
+            </div>
+
+            <LinkButton text="view more." link="/blogs" icon={faEye} />
+          </div>
+        </section>
+      )}
     </div>
   );
 }

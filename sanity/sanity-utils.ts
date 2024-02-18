@@ -3,6 +3,7 @@ import { Project } from "../types/Project";
 import clientConfig from "./config/client-config";
 import { Page } from "../types/Page";
 import { Adoption } from "../types/Adoption";
+import { ngoEvent } from "../types/Event";
 
 export async function getProjects(): Promise<Project[]> {
   return createClient(clientConfig).fetch(
@@ -37,6 +38,7 @@ export async function getAdoptions(): Promise<Adoption[]> {
         _id,
         _createdAt,name,
         "slug":slug.current,
+        breed,
         "image":image.asset->url,
         age,
         vaccinated,
@@ -84,6 +86,39 @@ export async function getPage(slug: string): Promise<Page> {
         _createdAt,title,
         "slug":slug.current,
         content
+    }`,
+    { slug: slug }
+  );
+}
+
+export async function getEvents(): Promise<ngoEvent[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "event"]{
+        _id,
+        _createdAt,name,
+        "slug":slug.current,
+        description,
+        event_date,
+        event_link,
+        contact_email,
+        location,
+        "image":image.asset->url,
+    }`
+  );
+}
+
+export async function getEvent(slug: string): Promise<ngoEvent> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "event" && slug.current==$slug][0]{
+        _id,
+        _createdAt,name,
+        "slug":slug.current,
+        description,
+        event_date,
+        event_link,
+        contact_email,
+        location,
+        "image":image.asset->url,
     }`,
     { slug: slug }
   );

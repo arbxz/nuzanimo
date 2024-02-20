@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { getProjects } from "../../../sanity/sanity-utils";
-import { Project } from "../../../types/Project";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,20 +11,23 @@ import {
 import LinkButton from "@/components/LinkButton";
 import CommercialImage from "@/components/CommercialImage";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
+import { getArticles } from "../../../sanity/sanity-utils";
+import { Article } from "../../../types/Article";
 
 export default async function Home() {
-  const projects: Project[] = await getProjects();
+  const projects: Article[] = await getArticles();
 
   return (
     <div className="flex bg-pastel-beige flex-col">
-      <section className="relative noise">
+      <section className="relative bg-pastel-dark noise overflow-x-hidden h-full">
         <Image
-          src="/bg-main.svg"
+          src="/blob-haikei.svg"
           alt="bg-main"
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={1080}
+          className="absolute -left-96 -top-48 block inset-0 w-auto h-full object-contain z-0"
+          width={600}
+          height={600}
         />
+
         <div className="relative flex flex-col lg:flex-row items-center justify-center gap-8 z-10 px-4 pt-16 lg:pt-8 min-h-svh">
           <div className="text-center lg:text-left w-full max-w-[500px] glass border-none rounded-xl p-4 text-white">
             <h1 className="font-extrabold text-6xl md:text-8xl mb-4">
@@ -41,10 +42,11 @@ export default async function Home() {
           <div className="flex flex-col gap-4 h-full">
             <div className="hidden lg:block">
               <CommercialImage
-                src="/home.jpg"
+                src="/home.webp"
                 alt="home"
                 width={500}
                 height={500}
+                blurDataUrl="/home.webp"
                 credits="Photo by Tina Nord"
                 creditLink="https://www.pexels.com/photo/adult-yellow-labrador-retriever-at-the-back-of-pickup-truck-917106/"
               />
@@ -52,7 +54,7 @@ export default async function Home() {
 
             <div className="block max-w-[500px]">
               <Link
-                className="block text-white hover:scale-105 transition-transform duration-300 shadow-md"
+                className="block text-white lg:hover:scale-105 transition-transform duration-300 shadow-md"
                 href="/events">
                 <div className="bg-primary flex items-end gap-4 p-4 rounded-md">
                   <div className="hidden lg:block">
@@ -85,10 +87,11 @@ export default async function Home() {
       <section className="relative noise bg-pastel-dark text-white">
         <div className="relative flex flex-col md:flex-row gap-8 items-end px-4 py-24 lg:py-36 max-w-6xl mx-auto z-10">
           <CommercialImage
-            src="/adopt.jpg"
+            src="/adopt.webp"
             alt="adopt"
             width={650}
             height={650}
+            blurDataUrl="/adopt.webp"
             credits="Photo by Edgar Daniel Hernández Cervantes"
             creditLink="https://www.pexels.com/photo/black-and-white-short-coated-dogs-3628100/"
           />
@@ -112,7 +115,7 @@ export default async function Home() {
         <Image
           src="/blob-haikei.svg"
           alt="bg-main"
-          className="absolute block inset-0 w-auto h-full object-contain z-0"
+          className="absolute inset-0 w-auto h-full object-contain z-0"
           width={1920}
           height={1080}
         />
@@ -161,10 +164,11 @@ export default async function Home() {
           </div>
           <div className="w-1/2 hidden md:block">
             <CommercialImage
-              src="/vet.jpg"
+              src="/vet.webp"
               alt="vet"
               width={650}
               height={650}
+              blurDataUrl="/vet.webp"
               credits="Photo by Mikhail Nilov"
               creditLink=" https://www.pexels.com/photo/veteranarian-checking-on-a-dog-7469226/"
             />
@@ -195,7 +199,7 @@ export default async function Home() {
           <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
         </div>
       </section>
-      {projects && (
+      {projects.length > 0 && (
         <section className="relative noise text-center py-16">
           <div className="flex flex-col items-center max-w-6xl mx-auto">
             <div className="mb-8 lg:mb-12">

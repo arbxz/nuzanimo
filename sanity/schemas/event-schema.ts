@@ -10,13 +10,6 @@ const event = {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
-      name: "slug",
-      type: "slug",
-      title: "Slug",
-      options: { source: "name" },
-      validation: (Rule: { required: () => any }) => Rule.required(),
-    },
-    {
       name: "description",
       type: "string",
       title: "Event Description",

@@ -1,13 +1,15 @@
 import { createClient, groq } from "next-sanity";
-import { Project } from "../types/Project";
+import { Article } from "../types/Article";
 import clientConfig from "./config/client-config";
 import { Page } from "../types/Page";
 import { Adoption } from "../types/Adoption";
 import { ngoEvent } from "../types/Event";
+import { Vet } from "../types/Vet";
+import { Taxi } from "../types/Taxi";
 
-export async function getProjects(): Promise<Project[]> {
+export async function getArticles(): Promise<Article[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "project"]{
+    groq`*[_type == "article"]{
         _id,
         _createdAt,name,
         "slug":slug.current,
@@ -18,9 +20,9 @@ export async function getProjects(): Promise<Project[]> {
   );
 }
 
-export async function getProject(slug: string): Promise<Project> {
+export async function getArticle(slug: string): Promise<Article> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "project" && slug.current==$slug][0]{
+    groq`*[_type == "article" && slug.current==$slug][0]{
         _id,
         _createdAt,name,
         "slug":slug.current,
@@ -121,5 +123,31 @@ export async function getEvent(slug: string): Promise<ngoEvent> {
         "image":image.asset->url,
     }`,
     { slug: slug }
+  );
+}
+
+export async function getVets(): Promise<Vet[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "vet"]{
+        _id,name,
+        region,
+        map_link,
+        contact_email,
+        contact_tel,
+        "image":image.asset->url,
+    }`
+  );
+}
+
+export async function getTaxis(): Promise<Taxi[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "taxi"]{
+        _id,
+        name,
+        region,
+        contact_email,
+        contact_tel,
+        "image":image.asset->url,
+    }`
   );
 }

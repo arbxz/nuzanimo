@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     colors: {
       glass: "var(--glassBg)",
-      primary: "#FBAE3C",
+      primary: "#f0af37",
       "pastel-dark": "#001220",
       "pure-white": "#FFFFFF",
       white: "#E9EBEA",

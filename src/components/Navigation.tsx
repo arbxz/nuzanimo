@@ -13,22 +13,22 @@ const Navigation = () => {
   };
 
   const menuItems = [
-    { text: "Adoption.", url: "/adoptions" },
-    { text: "Sterilize ou zanimo.", url: "/neuter" },
-    { text: "Events.", url: "/events" },
+    { text: "adoption.", url: "/adoptions" },
+    { text: "sterilize ou zanimo.", url: "/neuter" },
+    { text: "events.", url: "/events" },
     {
-      text: "Articles.",
+      text: "articles.",
       subItems: [
-        { text: "Blog.", url: "/blogs" },
-        { text: "Vets.", url: "/vets" },
-        { text: "Taxi-zanimo.", url: "/taxi-zanimo" },
+        { text: "blog.", url: "/blogs" },
+        { text: "vets.", url: "/vets" },
+        { text: "taxi-zanimo.", url: "/taxis" },
       ],
     },
   ];
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-20 w-full bg-pastel-dark text-pure-white shadow-sm">
+      <header className="fixed top-0 left-0 z-20 w-full text-pure-white shadow-sm glass border-none">
         <nav className="w-full flex items-center justify-between px-4 py-2 mx-auto">
           <Link href="/">
             <Image src={"/logo.png"} alt="logo" width={40} height={40} />
@@ -40,7 +40,7 @@ const Navigation = () => {
             <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
           </button>
           <ul
-            className={`text-4xl lg:text-base text-center absolute lg:relative lg:top-0 top-12 left-0 w-full lg:w-auto lg:h-auto h-svh py-8 px-4 lg:p-0 bg-pastel-dark lg:flex ${
+            className={`text-4xl lg:text-base text-center absolute lg:relative lg:top-0 top-12 left-0 w-full lg:w-auto lg:h-auto h-svh py-8 px-4 lg:p-0 bg-pastel-dark lg:bg-opacity-0 lg:flex ${
               isMenuOpen ? "block" : "hidden"
             } items-center gap-2`}>
             {menuItems.map((item, index) => (

@@ -3,15 +3,8 @@ import Link from "next/link";
 import { getAdoptions } from "../../../../sanity/sanity-utils";
 import { Adoption } from "../../../../types/Adoption";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faInfoCircle,
-  faLink,
-  faLocationPin,
-  faStethoscope,
-} from "@fortawesome/free-solid-svg-icons";
-import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
-import { calcAge } from "@/app/utils";
+import { faInfoCircle, faLink } from "@fortawesome/free-solid-svg-icons";
+import AdoptionContent from "./AdoptionContent";
 
 export default async function Adoptions() {
   const adoptions: Adoption[] = await getAdoptions();
@@ -66,77 +59,7 @@ export default async function Adoptions() {
           before adopting them.{" "}
         </span>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:md:grid-cols-5 gap-4">
-          {adoptions.length > 0 ? (
-            adoptions.map((adoption) => (
-              <Link
-                className="group bg-pure-white rounded-md overflow-hidden shadow hover:shadow-md transition-shadow cursor-pointer"
-                key={adoption._id}
-                href={`/adoptions/${adoption.slug}`}>
-                {adoption.image && (
-                  <div className="h-52 overflow-hidden">
-                    <Image
-                      src={adoption.image}
-                      alt={adoption.name}
-                      width={208}
-                      height={208}
-                      className="group-hover:scale-110 w-full h-52 object-cover overflow-hidden transition-transform"
-                      placeholder="blur"
-                      blurDataURL={adoption.image}
-                    />
-                  </div>
-                )}
-                <div className="flex gap-4 flex-col px-4 pt-2 pb-4">
-                  <span className="font-semibold capitalize">
-                    {adoption.name + "."}
-                  </span>
-                  {adoption.age && (
-                    <span className="flex gap-4 items-center">
-                      <FontAwesomeIcon icon={faStethoscope} />
-                      {calcAge(adoption.age)}
-                    </span>
-                  )}
-                  <span className="flex gap-4 items-center">
-                    <FontAwesomeIcon icon={faLocationPin} />
-                    {adoption.location}
-                  </span>
-                  <div className="flex flex-wrap gap-2 text-xs">
-                    <span
-                      className={`flex gap-2 items-center rounded-full border-2 px-2 py-1 ${
-                        adoption.neutered === "yes"
-                          ? "bg-green border-green"
-                          : "bg-vermillion border-vermillion text-white"
-                      }`}>
-                      {adoption.neutered === "yes" ? (
-                        <FontAwesomeIcon icon={faCheckCircle} />
-                      ) : (
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                      )}
-                      Neutered
-                    </span>
-                    <span
-                      className={`flex gap-2 items-center rounded-full border-2 px-2 py-1 ${
-                        adoption.vaccinated === "yes"
-                          ? "bg-green border-green "
-                          : "bg-vermillion border-vermillion text-white"
-                      }`}>
-                      {adoption.vaccinated === "yes" ? (
-                        <FontAwesomeIcon icon={faCheckCircle} />
-                      ) : (
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                      )}
-                      Vaccinated
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <p className="text-3xl text-center text-pastel-dark">
-              No adoption listing found.
-            </p>
-          )}
-        </div>
+        <AdoptionContent adoptionList={adoptions} />
       </div>
     </div>
   );

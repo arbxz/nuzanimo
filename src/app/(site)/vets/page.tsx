@@ -1,40 +1,32 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getVets } from "../../../../sanity/sanity-utils";
 import { Vet } from "../../../../types/Vet";
-import Image from "next/image";
+import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
+import VetContent from "./VetContent";
 
 export default async function Vets() {
   const vets: Vet[] = await getVets();
 
   return (
-    <section className="">
-      <div className="relative flex flex-col gap-8 lg:gap-16 justify-start items-center px-4 py-16 max-w-6xl mx-auto z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {vets.length > 0 ? (
-            vets.map((vet) => (
-              <div
-                className="flex gap-4 items-center border-pastel-lime border-2 rounded-xl overflow-hidden"
-                key={vet._id}>
-                <div className="">
-                  <Image
-                    className="h-40 w-40 object-cover overflow-hidden shadow"
-                    src={vet.image}
-                    alt={vet.name}
-                    width={150}
-                    height={150}
-                  />
-                </div>
-                <div>
-                  <span>{vet.name}</span>
-                  <span>{vet.region}</span>
-                  <span>{vet.contact_email}</span>
-                  <span>{vet.contact_tel}</span>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-3xl text-center text-white">No vet found.</p>
-          )}
+    <section>
+      <div className="bg-pastel-dark text-white px-4 pt-24 pb-16">
+        <div className="mx-auto max-w-6xl">
+          <span className="inline-block font-semibold text-xs border-[1px] border-white text-white px-4 py-2 rounded-full mb-4 hover:bg-white hover:text-pastel-dark transition-colors duration-300">
+            animal health and welfare.
+          </span>
+          <h1 className="text-6xl font-bold mb-8">
+            <FontAwesomeIcon icon={faMapLocation} className="mr-4" />
+            Find a Vet Near You.
+          </h1>
+          <p className="md:max-w-96">
+            Find a vet near you. If you are a vet and would like to be listed on
+            our website, please contact us.
+          </p>
         </div>
+      </div>
+
+      <div className="relative flex flex-col gap-8 lg:gap-16 justify-start items-center px-4 py-16 max-w-6xl mx-auto z-10">
+        <VetContent vetList={vets} />
       </div>
     </section>
   );

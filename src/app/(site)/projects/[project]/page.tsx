@@ -1,7 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
-import { getProject } from "../../../../../sanity/sanity-utils";
+import { getArticle } from "../../../../../sanity/sanity-utils";
 
 type Props = {
   params: {
@@ -11,7 +11,7 @@ type Props = {
 
 export default async function Project({ params }: Props) {
   const slug = params.project;
-  const project = await getProject(slug);
+  const project = await getArticle(slug);
 
   return (
     <div className="p-4 max-w-6xl mx-auto">

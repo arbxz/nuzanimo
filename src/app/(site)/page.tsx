@@ -85,7 +85,14 @@ export default async function Home() {
         </div>
       </section>
       <section className="relative noise bg-pastel-dark text-white">
-        <div className="relative flex flex-col md:flex-row gap-8 items-end px-4 py-24 lg:py-36 max-w-6xl mx-auto z-10">
+        <Image
+          src="/blob-haikei.svg"
+          alt="bg-main"
+          className="absolute inset-0 w-auto h-full object-contain z-0"
+          width={1920}
+          height={1080}
+        />
+        <div className="relative z-20 flex flex-col md:flex-row gap-8 items-end px-4 py-24 lg:py-36 max-w-6xl mx-auto">
           <CommercialImage
             src="/adopt.webp"
             alt="adopt"
@@ -112,13 +119,6 @@ export default async function Home() {
             <LinkButton text="learn more." link="/adoptions" icon={faEye} />
           </div>
         </div>
-        <Image
-          src="/blob-haikei.svg"
-          alt="bg-main"
-          className="absolute inset-0 w-auto h-full object-contain z-0"
-          width={1920}
-          height={1080}
-        />
       </section>
       <section className="relative noise bg-pure-white">
         <div className="flex flex-col md:flex-row gap-8 items-start max-w-6xl mx-auto px-4 py-24">

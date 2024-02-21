@@ -39,7 +39,7 @@ const VetContent = ({ vetList }: { vetList: Vet[] }) => {
     setSelectedRegion(updatedRegion);
   };
   return (
-    <div className="flex justify-start flex-col lg:flex-row gap-8">
+    <div className="flex justify-start flex-col lg:flex-row gap-8 w-full">
       <div className="mb-8 lg:max-w-36 w-full">
         <div className="grid grid-cols-2 lg:grid-cols-none items-center gap-4">
           <Checkbox

@@ -10,7 +10,7 @@ export default async function Taxis() {
   return (
     <section>
       <div className="bg-pastel-dark mb-16">
-        <div className="max-w-6xl mx-auto px-4 pt-24 pb-8 text-white">
+        <div className="max-w-6xl mx-auto px-4 pt-24 pb-16 text-white">
           <span className="inline-block font-semibold text-xs border-[1px] border-white text-white px-4 py-2 rounded-full mb-4 hover:bg-white hover:text-pastel-dark transition-colors duration-300">
             animal transportation.
           </span>

@@ -11,7 +11,7 @@ export default async function Adoptions() {
 
   return (
     <div>
-      <div className="relative w-full mb-16">
+      <div className="relative w-full mb-8">
         <video
           className="h-[600px] object-cover w-full hidden lg:block"
           width="100%"
@@ -46,7 +46,7 @@ export default async function Adoptions() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 lg:gap-16 justify-start items-center px-4 max-w-6xl mx-auto mb-16">
+      <div className="flex flex-col gap-8 justify-start items-center px-4 max-w-6xl mx-auto mb-16">
         <span className="font-semibold">
           <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
           Be sure to read about how to take care of animals from this{" "}

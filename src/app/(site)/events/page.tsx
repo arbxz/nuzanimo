@@ -13,19 +13,22 @@ export default async function NgoEvent() {
   const ngoEvents: ngoEvent[] = await getEvents();
 
   return (
-    <section className="bg-pastel-dark">
-      <Image
+    <section>
+      {/* <Image
         src="/blob-haikei.svg"
         alt="bg-main"
         className="absolute block inset-0 w-auto h-full object-contain z-0"
         width={1920}
         height={1080}
-      />
+      /> */}
 
-      <div className="relative w-full pt-16 lg:pt-24 px-4 pb-8 text-white z-10">
+      <div className="relative w-full pt-16 lg:pt-24 px-4 pb-16 bg-pastel-dark text-white z-10">
         <div className="max-w-6xl mx-auto">
-          <h1 className=" flex items-center gap-4 text-4xl lg:text-6xl font-bold mb-4">
-            <FontAwesomeIcon className="text-primary" icon={faHashtag} />
+          <span className="inline-block font-semibold text-xs border-[1px] border-white text-white px-4 py-2 rounded-full mb-4 hover:bg-white hover:text-pastel-dark transition-colors duration-300">
+            animal welfare and community.
+          </span>
+          <h1 className=" flex items-center gap-4 text-4xl lg:text-6xl font-bold mb-8">
+            <FontAwesomeIcon icon={faHashtag} />
             Event Hosted by our Community
           </h1>
           <p className="lg:max-w-lg">
@@ -37,10 +40,9 @@ export default async function NgoEvent() {
       </div>
 
       <div className="relative flex flex-col gap-8 lg:gap-16 justify-start items-center px-4 py-16 max-w-6xl mx-auto z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
           {ngoEvents.length > 0 ? (
             ngoEvents.map((ngoEvent) => (
-              //  href={`/events/${ngoEvent.slug}`}
               <div
                 className="group bg-pure-white overflow-hidden shadow hover:shadow-md px-4 py-4 rounded-md transition-shadow cursor-pointer"
                 key={ngoEvent._id}>

@@ -28,7 +28,7 @@ const Navigation = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-20 w-full text-pure-white shadow-sm glass border-none">
+      <header className="fixed top-0 left-0 z-50 w-full text-pure-white shadow-sm glass border-none">
         <nav className="w-full flex items-center justify-between px-4 py-2 mx-auto">
           <Link href="/">
             <Image src={"/logo.png"} alt="logo" width={40} height={40} />

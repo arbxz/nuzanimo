@@ -73,7 +73,7 @@ export default async function NgoEvent() {
                         {ngoEvent.location}
                       </p>
                       <a
-                        className="inline-block border-2 border-primary px-4 py-1 rounded hover:text-primary hover:bg-pure-white bg-primary text-white transition-all duration-300 ease-in-out"
+                        className="inline-block border-2 border-primary px-4 py-1 rounded hover:text-primary hover:bg-pure-white bg-primary text-pure-white transition-all duration-300 ease-in-out"
                         href={ngoEvent.event_link}>
                         <FontAwesomeIcon
                           className="mr-2"

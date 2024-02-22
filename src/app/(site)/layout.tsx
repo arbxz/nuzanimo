@@ -41,13 +41,7 @@ export default function RootLayout({
                     <Link href={"/adoptions"}>adoption.</Link>
                   </li>
                   <li>
-                    <Link href={"/vaccination"}>vaccination.</Link>
-                  </li>
-                  <li>
                     <Link href={"/neuter"}>neutering.</Link>
-                  </li>
-                  <li>
-                    <Link href={"/animal-taxi"}>animal transport.</Link>
                   </li>
                 </ul>
               </div>
@@ -58,10 +52,14 @@ export default function RootLayout({
                     <Link href={"/adoptions"}>veteranarian.</Link>
                   </li>
                   <li>
-                    <Link href={"/neuter"}>animal-taxi.</Link>
+                    <Link href={"/taxis"}>animal-taxi.</Link>
                   </li>
                   <li>
-                    <Link href={"/vaccination"}>shadowscript studios.</Link>
+                    <Link
+                      target="_blank"
+                      href={"https://www.shadowscript-studios.com"}>
+                      shadowscript studios.
+                    </Link>
                   </li>
                 </ul>
               </div>

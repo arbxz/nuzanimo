@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getAdoptions } from "../../../../sanity/sanity-utils";
 import { Adoption } from "../../../../types/Adoption";

@@ -189,7 +189,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-      <section className="bg-pastel-dark text-pastel-beige">
+      {/* <section className="bg-pastel-dark text-pastel-beige">
         <div className="max-w-6xl mx-auto flex gap-4 lg:gap-8 flex-wrap justify-center text-center py-16 lg:py-32">
           <h3 className="text-4xl font-semibold w-full">Our Partners.</h3>
           <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
@@ -198,7 +198,7 @@ export default async function Home() {
           <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
           <Image src="/PAWS-Logo.png" alt="paws" width={100} height={100} />
         </div>
-      </section>
+      </section> */}
       {projects.length > 0 && (
         <section className="relative noise text-center py-16">
           <div className="flex flex-col items-center max-w-6xl mx-auto">

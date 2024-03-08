@@ -1,11 +1,13 @@
 import { createClient, groq } from "next-sanity";
-import { Article } from "../types/Article";
+import { Article } from "../src/types/Article";
 import clientConfig from "./config/client-config";
-import { Page } from "../types/Page";
-import { Adoption } from "../types/Adoption";
-import { ngoEvent } from "../types/Event";
-import { Vet } from "../types/Vet";
-import { Taxi } from "../types/Taxi";
+import { Page } from "../src/types/Page";
+import { Adoption } from "../src/types/Adoption";
+import { ngoEvent } from "../src/types/Event";
+import { Vet } from "../src/types/Vet";
+import { Taxi } from "../src/types/Taxi";
+
+export const dynamic = "force-dynamic";
 
 export async function getArticles(): Promise<Article[]> {
   return createClient(clientConfig).fetch(

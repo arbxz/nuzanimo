@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getTaxis } from "../../../../sanity/sanity-utils";
-import { Taxi } from "../../../../types/Taxi";
+import { Taxi } from "../../../types/Taxi";
 import TaxiContent from "./TaxiContent";
 import { faTaxi } from "@fortawesome/free-solid-svg-icons";
 

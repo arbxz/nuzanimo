@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getEvents } from "../../../../sanity/sanity-utils";
-import { ngoEvent } from "../../../../types/Event";
+import { ngoEvent } from "../../../types/Event";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarAlt,

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAdoptions } from "../../../../sanity/sanity-utils";
-import { Adoption } from "../../../../types/Adoption";
+import { Adoption } from "../../../types/Adoption";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle, faLink } from "@fortawesome/free-solid-svg-icons";
 import AdoptionContent from "./AdoptionContent";

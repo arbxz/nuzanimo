@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { Taxi } from "../../../../types/Taxi";
+import { Taxi } from "../../../types/Taxi";
 import { useState, useEffect } from "react";
 import Checkbox from "@/components/Checkbox";
 

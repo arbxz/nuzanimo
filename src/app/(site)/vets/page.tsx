@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getVets } from "../../../../sanity/sanity-utils";
-import { Vet } from "../../../../types/Vet";
+import { Vet } from "../../../types/Vet";
 import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
 import VetContent from "./VetContent";
 

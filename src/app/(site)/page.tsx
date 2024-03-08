@@ -12,7 +12,7 @@ import LinkButton from "@/components/LinkButton";
 import CommercialImage from "@/components/CommercialImage";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { getArticles } from "../../../sanity/sanity-utils";
-import { Article } from "../../../types/Article";
+import { Article } from "../../types/Article";
 
 export default async function Home() {
   const projects: Article[] = await getArticles();

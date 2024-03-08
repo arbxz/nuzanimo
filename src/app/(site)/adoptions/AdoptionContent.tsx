@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { Adoption } from "../../../../types/Adoption";
+import { Adoption } from "../../../types/Adoption";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Checkbox from "@/components/Checkbox";
@@ -18,10 +18,6 @@ import Checkbox from "@/components/Checkbox";
 const AdoptionContent = ({ adoptionList }: { adoptionList: Adoption[] }) => {
   const [sortedList, setSortedList] = useState(adoptionList);
   const [selectedBreeds, setSelectedBreeds] = useState<string[]>([]);
-
-  useEffect(() => {
-    setSortedList(adoptionList);
-  }, [adoptionList]);
 
   const handleSortByBreed = () => {
     const sorted = adoptionList.filter((adoption) =>
@@ -39,6 +35,10 @@ const AdoptionContent = ({ adoptionList }: { adoptionList: Adoption[] }) => {
     }
     setSelectedBreeds(updatedBreeds);
   };
+
+  useEffect(() => {
+    setSortedList(adoptionList);
+  }, [adoptionList]);
 
   return (
     <div>

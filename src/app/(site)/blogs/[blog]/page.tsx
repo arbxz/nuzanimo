@@ -2,6 +2,9 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
 import { getArticle } from "../../../../../sanity/sanity-utils";
+import { singleArticleQuery } from "../../../../../sanity/sanity.query";
+import { sanityFetch } from "../../../../../sanity/config/client-config";
+import { Article } from "@/types/Article";
 
 type Props = {
   params: {
@@ -11,7 +14,11 @@ type Props = {
 
 export default async function Blog({ params }: Props) {
   const slug = params.project;
-  const project = await getArticle(slug);
+  const project: Article = await sanityFetch({
+    query: singleArticleQuery,
+    tags: ["blog"],
+    qParams: { slug: slug }, // add slug from next-js params
+  });
 
   return (
     <div className="p-4 max-w-6xl mx-auto">

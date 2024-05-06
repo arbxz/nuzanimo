@@ -3,10 +3,14 @@ import { getTaxis } from "../../../../sanity/sanity-utils";
 import { Taxi } from "../../../types/Taxi";
 import TaxiContent from "./TaxiContent";
 import { faTaxi } from "@fortawesome/free-solid-svg-icons";
+import { taxiQuery } from "../../../../sanity/sanity.query";
+import { sanityFetch } from "../../../../sanity/config/client-config";
 
 export default async function Taxis() {
-  const taxis: Taxi[] = await getTaxis();
-
+  const taxis: Taxi[] = await sanityFetch({
+    query: taxiQuery,
+    tags: ["taxi"],
+  });
   return (
     <section>
       <div className="bg-pastel-dark mb-16">

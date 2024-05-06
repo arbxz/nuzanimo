@@ -8,9 +8,15 @@ import {
   faHashtag,
   faLocationPin,
 } from "@fortawesome/free-solid-svg-icons";
+import { sanityFetch } from "../../../../sanity/config/client-config";
+import event from "../../../../sanity/schemas/event-schema";
+import { eventQuery } from "../../../../sanity/sanity.query";
 
 export default async function NgoEvent() {
-  const ngoEvents: ngoEvent[] = await getEvents();
+  const ngoEvents: ngoEvent[] = await sanityFetch({
+    query: eventQuery,
+    tags: ["events"],
+  });
 
   return (
     <section>

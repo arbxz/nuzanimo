@@ -1,7 +1,6 @@
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
-import { getAdoption } from "../../../../../sanity/sanity-utils";
 import { calcAge } from "@/app/utils";
 import {
   faCheckCircle,
@@ -11,6 +10,9 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { sanityFetch } from "../../../../../sanity/config/client-config";
+import { singleAdoptionQuery } from "../../../../../sanity/sanity.query";
+import type { Adoption } from "@/types/Adoption";
 
 type Props = {
   params: {
@@ -20,7 +22,11 @@ type Props = {
 
 export default async function Adoption({ params }: Props) {
   const slug = params.adoption;
-  const adoption = await getAdoption(slug);
+  const adoption: Adoption = await sanityFetch({
+    query: singleAdoptionQuery,
+    tags: ["adoption"],
+    qParams: { slug: slug },
+  });
   const publishedDate = new Date(adoption._createdAt);
   const formattedDate = publishedDate.toLocaleDateString("en-GB", {
     day: "numeric",

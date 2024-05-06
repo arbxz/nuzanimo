@@ -1,11 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getVets } from "../../../../sanity/sanity-utils";
-import { Vet } from "../../../../types/Vet";
+import { Vet } from "../../../types/Vet";
 import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
 import VetContent from "./VetContent";
+import { sanityFetch } from "../../../../sanity/config/client-config";
+import { vetQuery } from "../../../../sanity/sanity.query";
 
 export default async function Vets() {
-  const vets: Vet[] = await getVets();
+  const vets: Vet[] = await sanityFetch({
+    query: vetQuery,
+    tags: ["vet"],
+  });
 
   return (
     <section>

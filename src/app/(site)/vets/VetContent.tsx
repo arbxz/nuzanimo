@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { Vet } from "../../../../types/Vet";
+import { Vet } from "../../../types/Vet";
 import { useState, useEffect } from "react";
 import Checkbox from "@/components/Checkbox";
 

@@ -12,10 +12,15 @@ import LinkButton from "@/components/LinkButton";
 import CommercialImage from "@/components/CommercialImage";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { getArticles } from "../../../sanity/sanity-utils";
-import { Article } from "../../../types/Article";
+import { Article } from "../../types/Article";
+import { sanityFetch } from "../../../sanity/config/client-config";
+import { articleQuery } from "../../../sanity/sanity.query";
 
 export default async function Home() {
-  const projects: Article[] = await getArticles();
+  const projects: Article[] = await sanityFetch({
+    query: articleQuery,
+    tags: ["article"],
+  });
 
   return (
     <div className="flex bg-pastel-beige flex-col">

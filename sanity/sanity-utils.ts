@@ -1,14 +1,15 @@
 import { createClient, groq } from "next-sanity";
-import { Article } from "../types/Article";
-import clientConfig from "./config/client-config";
-import { Page } from "../types/Page";
-import { Adoption } from "../types/Adoption";
-import { ngoEvent } from "../types/Event";
-import { Vet } from "../types/Vet";
-import { Taxi } from "../types/Taxi";
+import { Article } from "../src/types/Article";
+import { Page } from "../src/types/Page";
+import { Adoption } from "../src/types/Adoption";
+import { ngoEvent } from "../src/types/Event";
+import { Vet } from "../src/types/Vet";
+import { Taxi } from "../src/types/Taxi";
+import config from "../sanity.config";
+export const dynamic = "force-dynamic";
 
 export async function getArticles(): Promise<Article[]> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "article"]{
         _id,
         _createdAt,name,
@@ -21,7 +22,7 @@ export async function getArticles(): Promise<Article[]> {
 }
 
 export async function getArticle(slug: string): Promise<Article> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "article" && slug.current==$slug][0]{
         _id,
         _createdAt,name,
@@ -35,7 +36,7 @@ export async function getArticle(slug: string): Promise<Article> {
 }
 
 export async function getAdoptions(): Promise<Adoption[]> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "adoption"]{
         _id,
         _createdAt,name,
@@ -52,7 +53,7 @@ export async function getAdoptions(): Promise<Adoption[]> {
 }
 
 export async function getAdoption(slug: string): Promise<Adoption> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "adoption" && slug.current==$slug][0]{
         _id,
         _createdAt,name,
@@ -72,7 +73,7 @@ export async function getAdoption(slug: string): Promise<Adoption> {
 }
 
 export async function getPages(): Promise<Page[]> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "page"]{
         _id,
         _createdAt,title,
@@ -82,7 +83,7 @@ export async function getPages(): Promise<Page[]> {
 }
 
 export async function getPage(slug: string): Promise<Page> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "page" && slug.current==$slug][0]{
         _id,
         _createdAt,title,
@@ -94,7 +95,7 @@ export async function getPage(slug: string): Promise<Page> {
 }
 
 export async function getEvents(): Promise<ngoEvent[]> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "event"]{
         _id,
         _createdAt,name,
@@ -110,7 +111,7 @@ export async function getEvents(): Promise<ngoEvent[]> {
 }
 
 export async function getEvent(slug: string): Promise<ngoEvent> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "event" && slug.current==$slug][0]{
         _id,
         _createdAt,name,
@@ -127,7 +128,7 @@ export async function getEvent(slug: string): Promise<ngoEvent> {
 }
 
 export async function getVets(): Promise<Vet[]> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "vet"]{
         _id,name,
         region,
@@ -140,7 +141,7 @@ export async function getVets(): Promise<Vet[]> {
 }
 
 export async function getTaxis(): Promise<Taxi[]> {
-  return createClient(clientConfig).fetch(
+  return createClient(config).fetch(
     groq`*[_type == "taxi"]{
         _id,
         name,

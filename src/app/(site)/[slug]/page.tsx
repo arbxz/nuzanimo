@@ -1,12 +1,19 @@
 import { PortableText } from "@portabletext/react";
 import { getPage } from "../../../../sanity/sanity-utils";
+import type { Page } from "@/types/Page";
+import { sanityFetch } from "../../../../sanity/config/client-config";
+import { singlePageQuery } from "../../../../sanity/sanity.query";
 
 type Props = {
   params: { slug: string };
 };
 
 export default async function Page({ params }: Props) {
-  const page = await getPage(params.slug);
+  const page: Page = await sanityFetch({
+    query: singlePageQuery,
+    tags: ["page"],
+    qParams: { slug: params.slug }, // add slug from next-js params
+  });
 
   return (
     <div className="p-4 max-w-6xl mx-auto">

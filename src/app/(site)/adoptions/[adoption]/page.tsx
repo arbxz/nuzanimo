@@ -24,7 +24,7 @@ export default async function Adoption({ params }: Props) {
   const slug = params.adoption;
   const adoption: Adoption = await sanityFetch({
     query: singleAdoptionQuery,
-    tags: ["adoption"],
+    tags: ["adoptions"],
     qParams: { slug: slug },
   });
   const publishedDate = new Date(adoption._createdAt);

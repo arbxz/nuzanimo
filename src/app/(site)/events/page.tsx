@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { getEvents } from "../../../../sanity/sanity-utils";
 import { ngoEvent } from "../../../types/Event";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +7,6 @@ import {
   faLocationPin,
 } from "@fortawesome/free-solid-svg-icons";
 import { sanityFetch } from "../../../../sanity/config/client-config";
-import event from "../../../../sanity/schemas/event-schema";
 import { eventQuery } from "../../../../sanity/sanity.query";
 
 export default async function NgoEvent() {

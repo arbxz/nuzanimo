@@ -1,5 +1,4 @@
 import { PortableText } from "@portabletext/react";
-import { getPage } from "../../../../sanity/sanity-utils";
 import type { Page } from "@/types/Page";
 import { sanityFetch } from "../../../../sanity/config/client-config";
 import { singlePageQuery } from "../../../../sanity/sanity.query";
@@ -11,7 +10,7 @@ type Props = {
 export default async function Page({ params }: Props) {
   const page: Page = await sanityFetch({
     query: singlePageQuery,
-    tags: ["page"],
+    tags: ["pages"],
     qParams: { slug: params.slug }, // add slug from next-js params
   });
 

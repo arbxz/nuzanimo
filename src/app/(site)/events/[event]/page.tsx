@@ -1,6 +1,5 @@
 import { ngoEvent } from "@/types/Event";
 import { sanityFetch } from "../../../../../sanity/config/client-config";
-import { getEvent } from "../../../../../sanity/sanity-utils";
 import { singleEventQuery } from "../../../../../sanity/sanity.query";
 
 type Props = {
@@ -13,7 +12,7 @@ const NgoEventDetails = async ({ params }: Props) => {
   const slug = params.event;
   const ngoEvent: ngoEvent = await sanityFetch({
     query: singleEventQuery,
-    tags: ["event"],
+    tags: ["events"],
     qParams: { slug: slug }, // add slug from next-js params
   });
 
